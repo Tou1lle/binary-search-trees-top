@@ -16,7 +16,19 @@ function Tree(array) {
     return root;
   }
 
-  return { root }
+  function insert(data, rootNode = root) {
+    if (rootNode === null) return new Node(data);
+
+    if (data < rootNode.data)   {
+      rootNode.left = insert(data, rootNode.left);
+    } else {
+      rootNode.right = insert(data, rootNode.right);
+    }
+
+    return rootNode;
+  }
+
+  return { root, insert }
 }
 
 export { Tree };
