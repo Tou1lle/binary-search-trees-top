@@ -1,19 +1,19 @@
 class Node {
   #data;
-  #leftNode;
-  #rightNode;
+  #left;
+  #right;
 
-  constructor(data, leftNode = null, rightNote = null) {
+  constructor(data, left = null, right = null) {
     this.data = data;
-    this.leftNode = leftNode;
-    this.rightNote = rightNote;
+    this.left = left;
+    this.right = right;
   }
 
   get data() { return this.#data; }
-  get leftNode() { return this.#leftNode; }
-  get rightNote() { return this.#rightNode; }
+  get left() { return this.#left; }
+  get right() { return this.#right; }
 
   set data(data) { this.#data = data; }
-  set leftNode(node) { this.#leftNode = node; }
-  set rightNote(node) { this.#rightNode = node; }
+  set left(node) { this.#left = node; }
+  set right(node) { this.#right = node; }
 }
