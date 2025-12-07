@@ -18,6 +18,7 @@ function Tree(array) {
 
   function insert(data, rootNode = root) {
     if (rootNode === null) return new Node(data);
+    if (data === rootNode.data) return rootNode;
 
     if (data < rootNode.data)   {
       rootNode.left = insert(data, rootNode.left);

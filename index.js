@@ -17,4 +17,6 @@ const data = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
 const bst = Tree(data);
 prettyPrint(bst.root);
 bst.insert(22);
+bst.insert(22);
+bst.insert(1);
 prettyPrint(bst.root);
