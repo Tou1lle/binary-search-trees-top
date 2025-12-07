@@ -17,3 +17,5 @@ class Node {
   set left(node) { this.#left = node; }
   set right(node) { this.#right = node; }
 }
+
+export { Node };
