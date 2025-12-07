@@ -29,7 +29,34 @@ function Tree(array) {
     return rootNode;
   }
 
-  return { root, insert }
+  function getSuccessor(current) {
+    current = current.right;
+    while(current !== null && current.left !== null) {
+      current = current.left;
+    }
+    return current;
+  }
+
+  function deleteItem(data, rootNode = root) {
+    if (rootNode === null) return rootNode;
+
+    if (rootNode.data > data) {
+      rootNode.left = deleteItem(data, rootNode.left);
+    } else if (rootNode.data < data) {
+      rootNode.right = deleteItem(data, rootNode.right);
+    } else {
+      if (rootNode.left === null) return rootNode.right;
+      if (rootNode.right === null) return rootNode.left;
+
+      const succ = getSuccessor(rootNode);
+      rootNode.data = succ.data;
+      rootNode.right = deleteItem(succ.data, rootNode.right)
+    }
+
+    return rootNode;
+  }
+
+  return { root, insert, deleteItem }
 }
 
 export { Tree };
