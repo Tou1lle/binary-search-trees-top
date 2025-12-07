@@ -28,3 +28,5 @@ bst.deleteItem(6);
 bst.deleteItem(4); 
 console.log("----------------");
 prettyPrint(bst.root);
+console.log(bst.find(1));
+console.log(bst.find(100));

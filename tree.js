@@ -56,7 +56,19 @@ function Tree(array) {
     return rootNode;
   }
 
-  return { root, insert, deleteItem }
+  function find(data) {
+    let tmp = root;
+
+    while (tmp) {
+      if (tmp.data === data) return tmp;
+      if (data > tmp.data) tmp = tmp.right;
+      if (data < tmp.data) tmp = tmp.left; 
+    }
+
+    return tmp;
+  }
+
+  return { root, insert, deleteItem, find }
 }
 
 export { Tree };
