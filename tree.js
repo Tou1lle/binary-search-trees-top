@@ -114,7 +114,7 @@ function Tree(array) {
   function height(value) {
     const node = find(value);
     if (!node) return null;
-    
+
     let height = 0;
     let arrHelper = [node];
 
@@ -131,6 +131,24 @@ function Tree(array) {
     }
   }
 
+  function depth(value) {
+    let tmp = root;
+    let depth = 0;
+
+    while (tmp) {
+      if (tmp.data === value) return depth;
+      if (value > tmp.data) {
+        tmp = tmp.right;
+      } else {
+        tmp = tmp.left;
+      }
+      depth++;
+    }
+
+    if (!tmp) return null;
+    return depth;
+  }
+
   return {
     root,
     insert,
@@ -142,6 +160,7 @@ function Tree(array) {
     preOrderForEach,
     postOrderForEach,
     height,
+    depth,
   };
 }
 
