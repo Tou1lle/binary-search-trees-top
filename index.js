@@ -16,6 +16,7 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
 const data = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
 const bst = Tree(data);
 prettyPrint(bst.root);
+console.log(bst.isBalanced());
 bst.insert(22);
 bst.insert(22);
 bst.insert(1);
@@ -50,3 +51,5 @@ console.log("67 depth: " + bst.depth(67));
 console.log("23 depth: " + bst.depth(23));
 console.log("22 depth: " + bst.depth(22));
 console.log("222 depth: " + bst.depth(222));
+prettyPrint(bst.root);
+console.log(bst.isBalanced());

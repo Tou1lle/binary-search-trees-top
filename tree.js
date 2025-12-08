@@ -149,6 +149,24 @@ function Tree(array) {
     return depth;
   }
 
+  function isBalanced(node = root) {
+    if (!node) return true;
+    let leftHeight = 0;
+    let rightHeight = 0;
+    if (node.left) {
+      leftHeight = height(node.left.data);
+      leftHeight++;
+    }
+    if (node.right) {
+      rightHeight = height(node.right.data);
+      rightHeight++;
+    }
+    
+    console.log(node.data, leftHeight, rightHeight);
+    if (Math.abs(leftHeight - rightHeight) > 1) return false;
+    return (isBalanced(node.left) && isBalanced(node.right));
+  }
+
   return {
     root,
     insert,
@@ -161,6 +179,7 @@ function Tree(array) {
     postOrderForEach,
     height,
     depth,
+    isBalanced
   };
 }
 
