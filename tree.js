@@ -111,6 +111,26 @@ function Tree(array) {
     callback(node);
   }
 
+  function height(value) {
+    const node = find(value);
+    if (!node) return null;
+    
+    let height = 0;
+    let arrHelper = [node];
+
+    while (true) {
+      const helper = [];
+      arrHelper.forEach((node) => {
+        if (node.left) helper.push(node.left);
+        if (node.right) helper.push(node.right);
+      });
+
+      if (!helper.length) return height;
+      arrHelper = helper;
+      height++;
+    }
+  }
+
   return {
     root,
     insert,
@@ -121,7 +141,7 @@ function Tree(array) {
     inOrderForEach,
     preOrderForEach,
     postOrderForEach,
-
+    height,
   };
 }
 
