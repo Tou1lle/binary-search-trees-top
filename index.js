@@ -34,3 +34,9 @@ console.log("Iterative:")
 bst.levelOrderForEach((node) => console.log(node.data));
 console.log("Recursive:")
 bst.levelOrderForEachRC((node) => console.log(node.data));
+console.log("InOrder traversal");
+bst.inOrderForEach(node => console.log(node.data));
+console.log("PreOrder traversal");
+bst.preOrderForEach(node => console.log(node.data));
+console.log("PostOrder traversal");
+bst.postOrderForEach(node => console.log(node.data));

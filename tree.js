@@ -90,6 +90,27 @@ function Tree(array) {
     levelOrderForEachRC(callback, array);
   }
 
+  function inOrderForEach(callback, node = root) {
+    if (!node) return;
+    inOrderForEach(callback, node.left);
+    callback(node);
+    inOrderForEach(callback, node.right);
+  }
+
+  function preOrderForEach(callback, node = root) {
+    if (!node) return;
+    callback(node);
+    preOrderForEach(callback, node.left);
+    preOrderForEach(callback, node.right);
+  }
+
+  function postOrderForEach(callback, node = root) {
+    if (!node) return;
+    postOrderForEach(callback, node.left);
+    postOrderForEach(callback, node.right);
+    callback(node);
+  }
+
   return {
     root,
     insert,
@@ -97,6 +118,10 @@ function Tree(array) {
     find,
     levelOrderForEach,
     levelOrderForEachRC,
+    inOrderForEach,
+    preOrderForEach,
+    postOrderForEach,
+
   };
 }
 
