@@ -30,3 +30,7 @@ console.log("----------------");
 prettyPrint(bst.root);
 console.log(bst.find(1));
 console.log(bst.find(100));
+console.log("Iterative:")
+bst.levelOrderForEach((node) => console.log(node.data));
+console.log("Recursive:")
+bst.levelOrderForEachRC((node) => console.log(node.data));
