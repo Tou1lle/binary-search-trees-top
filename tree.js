@@ -2,7 +2,7 @@ import { Node } from "./node.js";
 
 function Tree(array) {
   const uniqSort = [...new Set(array.slice().sort((a, b) => a - b))];
-  const root = buildTree(uniqSort, 0, uniqSort.length - 1);
+  let root = buildTree(uniqSort, 0, uniqSort.length - 1);
 
   function buildTree(array, start, end) {
     if (start > end) return null;
@@ -167,8 +167,17 @@ function Tree(array) {
     return (isBalanced(node.left) && isBalanced(node.right));
   }
 
+  function rebalance() {
+    const arr = [];
+    preOrderForEach(node => arr.push(node.data));
+    const uniq = [...new Set(arr.slice().sort((a,b) => a - b))];
+    console.log(arr);
+    console.log(uniq);
+    root = buildTree(uniq, 0, uniq.length - 1);
+  }
+
   return {
-    root,
+    get root() {return root},
     insert,
     deleteItem,
     find,
@@ -179,7 +188,8 @@ function Tree(array) {
     postOrderForEach,
     height,
     depth,
-    isBalanced
+    isBalanced,
+    rebalance
   };
 }
 
